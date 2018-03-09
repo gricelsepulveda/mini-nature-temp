@@ -63,7 +63,11 @@ src/styles/.sass-cache/*
 .sass-cache
 .sass-cache/*
 
-#Ignore .DS_Store files
+# Ignore mac files
 .DS_Store
-
-
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
