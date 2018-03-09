@@ -17,7 +17,11 @@ module.exports = function(grunt) {
     sass: {
       dist: {
         files: [{
-          expand: true,
+          //expand: true,
+          noCache: true,
+          compass: true,
+          style: 'compressed',
+          sourcemap: 'none',
           cwd: 'src/styles/',
           src: ['*.scss'],
           dest: 'dist/styles',
@@ -37,11 +41,34 @@ module.exports = function(grunt) {
         src: 'dist/styles/*.css'
       }
     },
+    jshint: {
+      files: 'src/scripts/*.js',
+      options: {
+        reporterOutput: "",
+        globals: {
+          jQuery: true
+        },
+        ignores: 'src/scripts/jquery-3.3.1.js',
+      }
+    },
+    uglify: {
+      build: {
+        files: [{
+            expand: true,
+            src: ['*.js'],
+            cwd: 'src/scripts',
+            dest: 'dist/scripts',
+            rename: function (dest, src) {
+              return dest + '/' + src.replace('.js', '.min.js');
+            }
+        }]
+      }
+    },
     'http-server': {
       'dev': {
-        root: './',
+        root: './dist/',
         port: 8282,
-        host: '0.0.0.0',
+        host: 'localhost',
         cache: 1,
         showDir: true,
         autoIndex: true,
@@ -52,7 +79,8 @@ module.exports = function(grunt) {
     },
     watch: {
       options: {
-        livereload: 8282,
+        livereload: true,
+        host: 'localhost'
       },
       sass: {
         files: ['src/styles/*.scss'],
@@ -61,6 +89,14 @@ module.exports = function(grunt) {
       slim: {
         files: ['src/views/*.slim'],
         tasks: ['slim'],
+      },
+      jshint: {
+        files: ['<%= jshint.files %>'],
+        tasks: ['jshint']
+      },
+      uglify: {
+        files: ['src/scripts/*.js'],
+        tasks: ['uglify'],
       }
     }
   });
@@ -69,5 +105,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-postcss');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-http-server');
-  grunt.registerTask('default',['slim', 'sass', 'postcss', 'http-server' ,'watch']);
+  grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.registerTask('default',['slim', 'sass', 'postcss', 'http-server', 'uglify','watch']);
 };
