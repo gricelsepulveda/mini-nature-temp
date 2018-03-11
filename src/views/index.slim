@@ -2,17 +2,348 @@ doctype html
 html lang="es"
   head
     meta charset="utf-8"
-    title Untitled 
-    meta name="description" content="description"
-    meta name="keywords" content="keywords"/
-    meta name="author" content="Gricel Sepulveda"/
+    title Mini-Nature
+    meta name="description" content="Hecho en Stgo, Chile"
+    meta name="keywords" content="maquetas, figuras"/
+    meta name="author" content="Rodrigo Morel. Diseñado por Gricel Sepulveda"/
     /! VIEWPORT RESPONSIVE
     meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/
     /! NORMALIZE
     link rel="stylesheet" href="../styles/normalize.min.css" type="text/css"
     /! FONT AWESOME
-    link rel="stylesheet" href="../styles/fontawesome5.css" type="text/css"
+    link rel="stylesheet" href="../styles/fontawesome-5.css" type="text/css"
+    /! STYLES 
+    link rel="stylesheet" href="../styles/mn-styles.css" type="text/css"
     /! JQUERY
-    script src="../scripts/jquery-3.3.1.min.js"
+    script src="http://code.jquery.com/jquery-1.4.2.min.js" type="text/javascript"
+    /! INSTAGRAM SCRIPTS
+    script src="../scripts/mn-scripts.min.js"
+    /! MINI NATURE SCRIPTS
+    script src="../scripts/imgsource.min.js"
+    /! LIVERELOAD
+    script src="http://localhost:35729/livereload.js"
+    javascript:
+      obtenerImagenes('.figura-index', "image-container")
+      function rotateBanners(elem) {
+        var active = $(elem + " img.active");
+        var next = active.next();
+        if (next.length == 0)
+          next = $(elem + " img:first");
+        active.removeClass("active").fadeOut(200);
+        next.addClass("active").fadeIn(200);
+      }
+      function prepareRotator(elem) {
+        $(elem + " img").fadeOut(0);
+        $(elem + " img:first").fadeIn(0).addClass("active");
+      }
+      function startRotator(elem) {
+        prepareRotator(elem);
+        setInterval("rotateBanners('" + elem + "')", 2500);
+      }
+      $(window).load(function () {
+        startRotator(".figura-index");
+      })
   body
+    nav.mn-nav-top.flex.row.between
+      .mn-logo-cnt
+        img src="../assets/img/logo.svg"
+      .mn-language
+        span.flex.col.start
+          | Idioma:
+          .flex.row.start
+            a.active href="http://www.mini-nature.cl/" es
+            a href="http://www.mini-nature.cl/en" en
+      .mn-data.flex.col.end
+        h3 mini-nature.cl
+        h4 Hecho en Stgo, Chile
+    .mn-wrapper-sections.flex.row.between
+      section.mn-instagram
+        .figura-index
+      section.mn-welcome
+        .mn-welcome-message
+          h1#text-title.mn-welcome-title Bienvenido a Mini Nature
+          p#text-description.mn-welcome-text
+            | Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+      section.mn-showcase.flex.col.end
+        h2.mn-showcase-title Nuestros productos
+        
+        //PRODUCT I
+        article.mn-product.flex.col.end.article-1
+          h3.mn-product-title Pasto electroestático 2mm 50ml.
+          p.mn-product-description
+            | El pasto electrostático de 2mm Mini-Nature esta pensado para su aplicación en Wargaming y modelos en escalas cercanas a 1:50 o más pequeñas.
+          ul.mn-product-list.flex.row.end
+            //ITEM
+            li.mn-product-item
+              .mn-image
+                img src="../assets/img/pas-el-2mm/01.png"
+              .mn-name Autunm
+            //ITEM
+            li.mn-product-item
+              .mn-image
+                img src="../assets/img/pas-el-2mm/02.png"
+              .mn-name Winter
+            //ITEM
+            li.mn-product-item
+              .mn-image
+                img src="../assets/img/pas-el-2mm/03.png"
+              .mn-name Spring
+            //ITEM
+            li.mn-product-item
+              .mn-image
+                img src="../assets/img/pas-el-2mm/04.png"
+              .mn-name Summer
+            //ITEM
+            li.mn-product-item
+              .mn-image
+                img src="../assets/img/pas-el-2mm/05.png"
+              .mn-name Savannah & Sunbumtn (Por separado / Separately)
+            //ITEM
+            li.mn-product-item
+              .mn-image
+                img src="../assets/img/pas-el-2mm/06.png"
+              .mn-name Yellow
+            //ITEM
+            li.mn-product-item
+              .mn-image
+                img src="../assets/img/pas-el-2mm/07.png"
+              .mn-name Red & Dark Red (Por separado / Separately)
+        
+        //PRODUCT II
+        article.mn-product.flex.col.end.article-2
+          h3.mn-product-title Pasto electroestático 4mm 50ml.
+          p.mn-product-description
+            | Al igual que el resto de nuestros productos, el Pasto Electrostático de 4mm Mini Nature tiene diversas aplicaciones, por ejemplo, crear los clásicos matojos de pasto.
+          ul.mn-product-list.flex.row.end
+            //ITEM
+            li.mn-product-item
+              .mn-image
+                img src="../assets/img/pas-el-4mm/01.png"
+              .mn-name Autunm
+            //ITEM
+            li.mn-product-item
+              .mn-image
+                img src="../assets/img/pas-el-4mm/02.png"
+              .mn-name Winter
+            //ITEM
+            li.mn-product-item
+              .mn-image
+                img src="../assets/img/pas-el-4mm/03.png"
+              .mn-name Spring
+            //ITEM
+            li.mn-product-item
+              .mn-image
+                img src="../assets/img/pas-el-4mm/04.png"
+              .mn-name Summer
+            //ITEM
+            li.mn-product-item
+              .mn-image
+                img src="../assets/img/pas-el-4mm/05.png"
+              .mn-name Savannah
+            //ITEM
+            li.mn-product-item
+              .mn-image
+                img src="../assets/img/pas-el-4mm/06.png"
+              .mn-name Subuntm
+            //ITEM
+            li.mn-product-item
+              .mn-image
+                img src="../assets/img/pas-el-4mm/07.png"
+              .mn-name Red & Dark Red (Por separado / Separately)
+
+        //PRODUCT III
+        article.mn-product.flex.col.end.article-3
+          h3.mn-product-title Pasto electroestático 6mm 50ml.
+          p.mn-product-description
+            | ¡A alguien se le olvidó cortar el pasto! El pasto electrostático de 6mm. tiene variadas aplicaciones, tanto para figuras en escalas cercanas a 1:16 como en figuras que rodean la 1:48.
+          ul.mn-product-list.flex.row.end
+            //ITEM
+            li.mn-product-item
+              .mn-image
+                img src="../assets/img/pas-el-6mm/01.png"
+              .mn-name Autunm
+            //ITEM
+            li.mn-product-item
+              .mn-image
+                img src="../assets/img/pas-el-6mm/02.png"
+              .mn-name Winter
+            //ITEM
+            li.mn-product-item
+              .mn-image
+                img src="../assets/img/pas-el-6mm/03.png"
+              .mn-name Spring
+            //ITEM
+            li.mn-product-item
+              .mn-image
+                img src="../assets/img/pas-el-6mm/04.png"
+              .mn-name Summer
+            //ITEM
+            li.mn-product-item
+              .mn-image
+                img src="../assets/img/pas-el-6mm/05.png"
+              .mn-name Savannah & Sunbumtn (Por separado / Separately)
+            //ITEM
+            li.mn-product-item
+              .mn-image
+                img src="../assets/img/pas-el-6mm/06.png"
+              .mn-name Yellow
+            //ITEM
+            li.mn-product-item
+              .mn-image
+                img src="../assets/img/pas-el-6mm/07.png"
+              .mn-name Red & Dark Red (Por separado / Separately)
+        
+        //PRODUCT IV
+        article.mn-product.flex.col.end.article-4
+          h3.mn-product-title Pasto electroestático 10mm 50ml.
+          p.mn-product-description
+            | Nuestro Pasto Electrostático de 10mm es ideal para su aplicación en modelos y figuras cuya escala es superior a 1:32. La pintura acrílica se adhiere perfectamente al pasto Mini-Nature.
+          ul.mn-product-list.flex.row.end
+            //ITEM
+            li.mn-product-item
+              .mn-image
+                img src="../assets/img/pas-el-10mm/01.png"
+              .mn-name Autunm
+            //ITEM
+            li.mn-product-item
+              .mn-image
+                img src="../assets/img/pas-el-10mm/02.png"
+              .mn-name Winter
+            //ITEM
+            li.mn-product-item
+              .mn-image
+                img src="../assets/img/pas-el-10mm/03.png"
+              .mn-name Spring
+            //ITEM
+            li.mn-product-item
+              .mn-image
+                img src="../assets/img/pas-el-10mm/04.png"
+              .mn-name Summer
+            //ITEM
+            li.mn-product-item
+              .mn-image
+                img src="../assets/img/pas-el-10mm/05.png"
+              .mn-name Green
+            //ITEM
+            li.mn-product-item
+              .mn-image
+                img src="../assets/img/pas-el-10mm/03.png"
+              .mn-name Spring
+
+        //PRODUCT V
+        article.mn-product.flex.col.end.article-5
+          h3.mn-product-title Balasto 50ml.
+          p.mn-product-description
+            | El Balasto es comunmente utilizado como piedras o gravilla en figuras y dioramas. Disponible en Large (L), Medium (M) y Small (S) para su uso en distintas escalas.
+          ul.mn-product-list.flex.row.end
+            //ITEM
+            li.mn-product-item
+              .mn-image
+                img src="../assets/img/bal/01.png"
+              .mn-name Light Brown (L, M & S)
+            //ITEM
+            li.mn-product-item
+              .mn-image
+                img src="../assets/img/bal/02.png"
+              .mn-name Brown (L, M & S)
+            //ITEM
+            li.mn-product-item
+              .mn-image
+                img src="../assets/img/bal/03.png"
+              .mn-name Gray (L, M & S)
+            //ITEM
+            li.mn-product-item
+              .mn-image
+                img src="../assets/img/bal/04.png"
+              .mn-name Black (L, M & S)
+            //ITEM
+            li.mn-product-item
+              .mn-image
+                img src="../assets/img/bal/05.png"
+              .mn-name River (L)
+              
+        //PRODUCT VI
+        article.mn-product.flex.col.end.article-6
+          h3.mn-product-title Líquen 100ml.
+          p.mn-product-description
+            | Un favorito dentro del hobby. Su textura única se mezcla fácilmente con el paisaje. Suele utilizarse como arbusto, follaje de árbol, y para cubrir terreno en cualquier escala.
+          ul.mn-product-list.flex.row.end
+            //ITEM
+            li.mn-product-item
+              .mn-image
+                img src="../assets/img/liquen/01.png"
+              .mn-name Natural (N)
+            //ITEM
+            li.mn-product-item
+              .mn-image
+                img src="../assets/img/liquen/02.png"
+              .mn-name Pale Green (PG)
+            //ITEM
+            li.mn-product-item
+              .mn-image
+                img src="../assets/img/liquen/03.png"
+              .mn-name Light Green (LG)
+            //ITEM
+            li.mn-product-item
+              .mn-image
+                img src="../assets/img/liquen/04.png"
+              .mn-name Medium Green (MG)
+            //ITEM
+            li.mn-product-item
+              .mn-image
+                img src="../assets/img/liquen/05.png"
+              .mn-name Dark Green (DG)
+            //ITEM
+            li.mn-product-item
+              .mn-image
+                img src="../assets/img/liquen/06.png"
+              .mn-name Autumn Mix (AM)
+
+    .mn-modal-container.display-none.modal-1
+      .mn-modal-product
+        h1.mn-modal-title Pasto electroestático 2mm 50ml.
+        p.mn-modal-text
+          | El pasto electrostático de 2mm Mini-Nature esta pensado para su aplicación en Wargaming y modelos en escalas cercanas a 1:50 o más pequeñas.
+    .mn-modal-container.display-none.modal-2
+      .mn-modal-product
+        h1.mn-modal-title Pasto electroestático 4mm 50ml.
+        p.mn-modal-text
+          | Al igual que el resto de nuestros productos, el Pasto Electrostático de 4mm Mini Nature tiene diversas aplicaciones, por ejemplo, crear los clásicos matojos de pasto.
+    .mn-modal-container.display-none.modal-3
+      .mn-modal-product
+        h1.mn-modal-title Pasto electroestático 6mm 50ml.
+        p.mn-modal-text
+          |  ¡A alguien se le olvidó cortar el pasto! El pasto electrostático de 6mm. tiene variadas aplicaciones, tanto para figuras en escalas cercanas a 1:16 como en figuras que rodean la 1:48.
+    .mn-modal-container.display-none.modal-4
+      .mn-modal-product
+        h1.mn-modal-title Pasto electroestático 10mm 50ml.
+        p.mn-modal-text
+          |  Nuestro Pasto Electrostático de 10mm es ideal para su aplicación en modelos y figuras cuya escala es superior a 1:32. La pintura acrílica se adhiere perfectamente al pasto Mini-Nature.
+    .mn-modal-container.display-none.modal-5
+      .mn-modal-product
+        h1.mn-modal-title Balasto 50ml.
+        p.mn-modal-text
+          | El Balasto es comunmente utilizado como piedras o gravilla en figuras y dioramas. Disponible en Large (L), Medium (M) y Small (S) para su uso en distintas escalas.
+    .mn-modal-container.display-none.modal-6
+      .mn-modal-product
+        h1.mn-modal-title Líquen 100ml.
+        p.mn-modal-text
+          |  Un favorito dentro del hobby. Su textura única se mezcla fácilmente con el paisaje. Suele utilizarse como arbusto, follaje de árbol, y para cubrir terreno en cualquier escala.
+    footer.mn-footer.flex.row.end
+      .mn-language
+        span.flex.col.start
+          | Idioma:
+          .flex.row.start
+            a.active href="./cl" es
+            a href="./en" en
+      span.follow Síguenos en redes sociales
+      a.fb href="https://www.facebook.com/mininaturechile/"
+        i.fab.fa-facebook-f
+      a.ins href="https://www.instagram.com/mininaturechile/"
+        i.fab.fa-instagram
+
+      
+      
+
+      
     

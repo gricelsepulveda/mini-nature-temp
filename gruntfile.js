@@ -9,24 +9,25 @@ module.exports = function(grunt) {
           expand: true,
           cwd: 'src/views',
           src: ['{,*/}*.slim'],
-          dest: 'dist/views',
+          dest: 'dist',
           ext: '.html'
         }]
       }
     },
     sass: {
       dist: {
-        files: [{
-          //expand: true,
+        options: {
           noCache: true,
-          compass: true,
           style: 'compressed',
           sourcemap: 'none',
-          cwd: 'src/styles/',
-          src: ['*.scss'],
-          dest: 'dist/styles',
-          ext: '.css'
-        }]
+          trace: true,
+          debugInfo: true,
+          compass: true
+        },
+        files: {
+          'dist/styles/fontawesome-5.css': 'src/styles/fontawesome-5.scss',
+          'dist/styles/mn-styles.css': 'src/styles/mn-styles.scss',
+        }
       }
     },
     postcss: {
@@ -67,7 +68,7 @@ module.exports = function(grunt) {
     'http-server': {
       'dev': {
         root: './dist/',
-        port: 8282,
+        port: 8080,
         host: 'localhost',
         cache: 1,
         showDir: true,
@@ -84,11 +85,11 @@ module.exports = function(grunt) {
       },
       sass: {
         files: ['src/styles/*.scss'],
-        tasks: ['sass'],
+        tasks: ['sass']
       },
       slim: {
         files: ['src/views/*.slim'],
-        tasks: ['slim'],
+        tasks: ['slim']
       },
       jshint: {
         files: ['<%= jshint.files %>'],
@@ -96,8 +97,8 @@ module.exports = function(grunt) {
       },
       uglify: {
         files: ['src/scripts/*.js'],
-        tasks: ['uglify'],
-      }
+        tasks: ['uglify']
+      },
     }
   });
   grunt.loadNpmTasks('grunt-slim');
