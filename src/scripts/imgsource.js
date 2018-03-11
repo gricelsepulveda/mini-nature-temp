@@ -14,6 +14,8 @@ var obtenerImagenes = function(container, imgClass) {
                 // Generación de elemento img
                 var $img = $("<img>", { class: imgClass, src: element.images.standard_resolution.url , alt: element.caption, style: 'display:none'})
                 $(container).append($img)
+                //var $input = $("<input>", { class: inputClass, value: element.caption, style: 'display:none'})
+                //$(container).append($input)
             }, this);
         }
     })

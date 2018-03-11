@@ -21,8 +21,8 @@ module.exports = function(grunt) {
           style: 'compressed',
           sourcemap: 'none',
           trace: true,
-          debugInfo: true,
-          compass: true
+          debugInfo: true
+          //compass: true
         },
         files: {
           'dist/styles/fontawesome-5.css': 'src/styles/fontawesome-5.scss',

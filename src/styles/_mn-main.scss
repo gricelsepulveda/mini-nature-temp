@@ -280,6 +280,20 @@ footer.mn-footer {
         }
       }
     }
+    &.mn-instagram {
+      .figura-index {
+        width: 90%;
+        display: block;
+        margin: 0 auto;
+        position: relative;
+        height: auto; 
+        img {
+          width: 100%;
+          position: relative;
+          height: auto;
+        }
+      }
+    }
     &.mn-showcase {
       @media #{$sm}{
         align-items: center!important;
