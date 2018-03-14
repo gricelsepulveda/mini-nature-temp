@@ -22,6 +22,8 @@ html lang="es"
     script src="../scripts/imgsource.min.js"
     /! LIVERELOAD
     script src="http://localhost:35729/livereload.js"
+    /! FAVICON
+    link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg"
     javascript:
       obtenerImagenes('.figura-index', "image-container")
       function rotateBanners(elem) {
@@ -39,6 +41,10 @@ html lang="es"
       function startRotator(elem) {
         prepareRotator(elem);
         setInterval("rotateBanners('" + elem + "')", 2500);
+        setInterval(function(){
+          var label = $('.figura-index > img.active').attr('alt');
+          $('.figura-index > textarea').attr("placeholder", label);
+        }, 2500);
       }
       $(window).load(function () {
         startRotator(".figura-index");
@@ -52,20 +58,21 @@ html lang="es"
           | Idioma:
           .flex.row.start
             a.active href="http://www.mini-nature.cl/" es
-            a href="http://www.mini-nature-cl/en.html" en
+            a href="http://www.mini-nature.cl/en.html" en
       .mn-data.flex.col.end
         h3 mini-nature.cl
         h4 Hecho en Stgo, Chile
     .mn-wrapper-sections.flex.row.between
       section.mn-instagram
         .figura-index
+          textarea readonly=""
       section.mn-welcome
         .mn-welcome-message
           h1#text-title.mn-welcome-title Bienvenido a Mini Nature
           p#text-description.mn-welcome-text
             | Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
       section.mn-showcase.flex.col.end
-        h2.mn-showcase-title Nuestros productos
+        h2.mn-showcase-title.display-none Nuestros productos
         
         //PRODUCT I
         article.mn-product.flex.col.end.article-1
@@ -304,44 +311,76 @@ html lang="es"
         h1.mn-modal-title Pasto electroestático 2mm 50ml.
         p.mn-modal-text
           | El pasto electrostático de 2mm Mini-Nature esta pensado para su aplicación en Wargaming y modelos en escalas cercanas a 1:50 o más pequeñas.
+        .flex.row.center
     .mn-modal-container.display-none.modal-2
       .mn-modal-product
         h1.mn-modal-title Pasto electroestático 4mm 50ml.
         p.mn-modal-text
           | Al igual que el resto de nuestros productos, el Pasto Electrostático de 4mm Mini Nature tiene diversas aplicaciones, por ejemplo, crear los clásicos matojos de pasto.
+        .flex.row.center
     .mn-modal-container.display-none.modal-3
       .mn-modal-product
         h1.mn-modal-title Pasto electroestático 6mm 50ml.
         p.mn-modal-text
           |  ¡A alguien se le olvidó cortar el pasto! El pasto electrostático de 6mm. tiene variadas aplicaciones, tanto para figuras en escalas cercanas a 1:16 como en figuras que rodean la 1:48.
+        .flex.row.center
     .mn-modal-container.display-none.modal-4
       .mn-modal-product
         h1.mn-modal-title Pasto electroestático 10mm 50ml.
         p.mn-modal-text
           |  Nuestro Pasto Electrostático de 10mm es ideal para su aplicación en modelos y figuras cuya escala es superior a 1:32. La pintura acrílica se adhiere perfectamente al pasto Mini-Nature.
+        .flex.row.center
     .mn-modal-container.display-none.modal-5
       .mn-modal-product
         h1.mn-modal-title Balasto 50ml.
         p.mn-modal-text
           | El Balasto es comunmente utilizado como piedras o gravilla en figuras y dioramas. Disponible en Large (L), Medium (M) y Small (S) para su uso en distintas escalas.
+        .flex.row.center
     .mn-modal-container.display-none.modal-6
       .mn-modal-product
         h1.mn-modal-title Líquen 100ml.
         p.mn-modal-text
           |  Un favorito dentro del hobby. Su textura única se mezcla fácilmente con el paisaje. Suele utilizarse como arbusto, follaje de árbol, y para cubrir terreno en cualquier escala.
+        .flex.row.center
     footer.mn-footer.flex.row.end
       .mn-language
         span.flex.col.start
           | Idioma:
           .flex.row.start
             a.active href="http://www.mini-nature.cl/" es
-            a href="http://www.mini-nature-cl/en.html" en
+            a href="http://www.mini-nature.cl/en.html" en
       span.follow Síguenos en redes sociales
       a.fb href="https://www.facebook.com/mininaturechile/"
         i.fab.fa-facebook-f
       a.ins href="https://www.instagram.com/mininaturechile/"
         i.fab.fa-instagram
-
+    //EMERGENCY FIXES
+    css: 
+      textarea{
+        box-sizing: border-box;
+        line-height: 30px!important;
+      }
+    //CHANGE TEXT DYNAMIC
+    javascript:
+      //TEXT CHANGE FUNCTION ES VERSION
+      function changeTitleES() {
+        $.ajax({
+          url : "../textos/titulo.txt",
+          dataType: "text",
+          success : function (data) {
+            $("#text-title").html(data);
+          }
+        });}
+      function changeTextES() {
+        $.ajax({
+          url : "../textos/descripcion.txt",
+          dataType: "text",
+          success : function (data) {
+            $("#text-description").html(data);
+          }
+        });}
+      changeTitleES();
+      changeTextES();
       
       
 

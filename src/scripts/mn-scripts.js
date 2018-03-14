@@ -54,25 +54,19 @@ $(document).ready(function(){
     $('.mn-welcome-message').fadeIn('fast');
   });
 
-  //TEXT CHANGE FUNCTION
-  function changeTitle() {
-    $.ajax({
-        url : "../textos/titulo.txt",
-        dataType: "text",
-        success : function (data) {
-            $("#text-title").html(data);
-        }
-    })}
-  function changeText() {
-      $.ajax({
-          url : "../textos/descripcion.txt",
-          dataType: "text",
-          success : function (data) {
-              $("#text-description").html(data);
-          }
-      })}
-
-  changeTitle();
-  changeText();
-
+  // DRAW ITEM
+  $('.mn-image').mouseover(function(){
+    var parent = $(this).closest('article')[0].classList[4].split('-')[1];
+    var modal = '.modal-' + parent;
+    var folder = $(this).find('img').attr('src').split('/')[3];
+    var number = $(this).find('img').attr('src').split('/')[4].split('.')[0];
+    var product = '<img src="../assets/img/' + folder + '/'+ number + '_.png">';
+    if($(".modal-" + parent).find('.flex')[0].children.length >= 1){
+      $(".modal-" + parent).find('img').remove();
+      $(".modal-" + parent).find('.flex').append(product);
+    }
+    else {
+      $(".modal-" + parent).find('.flex').append(product);
+    }
+  });
 });

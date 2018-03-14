@@ -16,6 +16,7 @@
     "autoprefixer": "^7.1.6",
     "cssnano": "^3.10.0",
     "g": "^2.0.1",
+    "grunt-autoprefixer": "^3.0.4",
     "grunt-http-server": "^2.0.0",
     "http-server": "^0.10.0"
   }

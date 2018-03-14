@@ -30,22 +30,18 @@ module.exports = function(grunt) {
         }
       }
     },
-    postcss: {
-      options: {
-        map: false,
-        processors: [
-          require('autoprefixer')({browsers: 'last 2 versions'}),
-          require('cssnano')()
-        ]
-      },
-      dist: {
-        src: 'dist/styles/*.css'
+    autoprefixer:{
+      dist:{
+        files:{
+          'dist/styles/mn-styles.css':'dist/styles/mn-styles.css'
+        }
       }
     },
     jshint: {
       files: 'src/scripts/*.js',
       options: {
         reporterOutput: "",
+        force: true,
         globals: {
           jQuery: true
         },
@@ -87,6 +83,10 @@ module.exports = function(grunt) {
         files: ['src/styles/*.scss'],
         tasks: ['sass']
       },
+      autoprefixer: {
+        files: ['dist/styles/*.css'],
+        tasks: ['autoprefixer']
+      },
       slim: {
         files: ['src/views/*.slim'],
         tasks: ['slim']
@@ -102,11 +102,11 @@ module.exports = function(grunt) {
     }
   });
   grunt.loadNpmTasks('grunt-slim');
+  grunt.loadNpmTasks('grunt-autoprefixer');  
   grunt.loadNpmTasks('grunt-contrib-sass');
-  grunt.loadNpmTasks('grunt-postcss');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-http-server');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-uglify');
-  grunt.registerTask('default',['slim', 'sass', 'postcss', 'http-server', 'uglify','watch']);
+  grunt.registerTask('default',['slim', 'sass', 'autoprefixer','http-server', 'uglify','watch']);
 };

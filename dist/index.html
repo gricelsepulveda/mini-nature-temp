@@ -22,6 +22,8 @@
     <script src="../scripts/imgsource.min.js"></script>
     <!--LIVERELOAD-->
     <script src="http://localhost:35729/livereload.js"></script>
+    <!--FAVICON-->
+    <link href="../assets/img/favicon.svg" rel="icon" type="image/svg+xml" />
     <script>
       obtenerImagenes('.figura-index', "image-container")
       function rotateBanners(elem) {
@@ -39,6 +41,10 @@
       function startRotator(elem) {
         prepareRotator(elem);
         setInterval("rotateBanners('" + elem + "')", 2500);
+        setInterval(function(){
+          var label = $('.figura-index > img.active').attr('alt');
+          $('.figura-index > textarea').attr("placeholder", label);
+        }, 2500);
       }
       $(window).load(function () {
         startRotator(".figura-index");
@@ -53,7 +59,7 @@
       <div class="mn-language">
         <span class="flex col start">Idioma:
           <div class="flex row start">
-            <a class="active" href="http://www.mini-nature.cl/">es</a><a href="http://www.mini-nature-cl/en.html">en</a>
+            <a class="active" href="http://www.mini-nature.cl/">es</a><a href="http://www.mini-nature.cl/en.html">en</a>
           </div>
         </span>
       </div>
@@ -68,7 +74,9 @@
     </nav>
     <div class="mn-wrapper-sections flex row between">
       <section class="mn-instagram">
-        <div class="figura-index"></div>
+        <div class="figura-index">
+          <textarea readonly=""></textarea>
+        </div>
       </section>
       <section class="mn-welcome">
         <div class="mn-welcome-message">
@@ -81,7 +89,7 @@
         </div>
       </section>
       <section class="mn-showcase flex col end">
-        <h2 class="mn-showcase-title">
+        <h2 class="mn-showcase-title display-none">
           Nuestros productos
         </h2>
         <article class="mn-product flex col end article-1">
@@ -458,6 +466,7 @@
         <p class="mn-modal-text">
           El pasto electrostático de 2mm Mini-Nature esta pensado para su aplicación en Wargaming y modelos en escalas cercanas a 1:50 o más pequeñas.
         </p>
+        <div class="flex row center"></div>
       </div>
     </div>
     <div class="mn-modal-container display-none modal-2">
@@ -468,6 +477,7 @@
         <p class="mn-modal-text">
           Al igual que el resto de nuestros productos, el Pasto Electrostático de 4mm Mini Nature tiene diversas aplicaciones, por ejemplo, crear los clásicos matojos de pasto.
         </p>
+        <div class="flex row center"></div>
       </div>
     </div>
     <div class="mn-modal-container display-none modal-3">
@@ -478,6 +488,7 @@
         <p class="mn-modal-text">
           ¡A alguien se le olvidó cortar el pasto! El pasto electrostático de 6mm. tiene variadas aplicaciones, tanto para figuras en escalas cercanas a 1:16 como en figuras que rodean la 1:48.
         </p>
+        <div class="flex row center"></div>
       </div>
     </div>
     <div class="mn-modal-container display-none modal-4">
@@ -488,6 +499,7 @@
         <p class="mn-modal-text">
           Nuestro Pasto Electrostático de 10mm es ideal para su aplicación en modelos y figuras cuya escala es superior a 1:32. La pintura acrílica se adhiere perfectamente al pasto Mini-Nature.
         </p>
+        <div class="flex row center"></div>
       </div>
     </div>
     <div class="mn-modal-container display-none modal-5">
@@ -498,6 +510,7 @@
         <p class="mn-modal-text">
           El Balasto es comunmente utilizado como piedras o gravilla en figuras y dioramas. Disponible en Large (L), Medium (M) y Small (S) para su uso en distintas escalas.
         </p>
+        <div class="flex row center"></div>
       </div>
     </div>
     <div class="mn-modal-container display-none modal-6">
@@ -508,17 +521,45 @@
         <p class="mn-modal-text">
           Un favorito dentro del hobby. Su textura única se mezcla fácilmente con el paisaje. Suele utilizarse como arbusto, follaje de árbol, y para cubrir terreno en cualquier escala.
         </p>
+        <div class="flex row center"></div>
       </div>
     </div>
     <footer class="mn-footer flex row end">
       <div class="mn-language">
         <span class="flex col start">Idioma:
           <div class="flex row start">
-            <a class="active" href="http://www.mini-nature.cl/">es</a><a href="http://www.mini-nature-cl/en.html">en</a>
+            <a class="active" href="http://www.mini-nature.cl/">es</a><a href="http://www.mini-nature.cl/en.html">en</a>
           </div>
         </span>
       </div>
       <span class="follow">Síguenos en redes sociales</span><a class="fb" href="https://www.facebook.com/mininaturechile/"><i class="fab fa-facebook-f"></i></a><a class="ins" href="https://www.instagram.com/mininaturechile/"><i class="fab fa-instagram"></i></a>
     </footer>
+    <style type="text/css">
+      textarea{
+        box-sizing: border-box;
+        line-height: 30px!important;
+      }
+    </style>
+    <script>
+      //TEXT CHANGE FUNCTION ES VERSION
+      function changeTitleES() {
+        $.ajax({
+          url : "../textos/titulo.txt",
+          dataType: "text",
+          success : function (data) {
+            $("#text-title").html(data);
+          }
+        });}
+      function changeTextES() {
+        $.ajax({
+          url : "../textos/descripcion.txt",
+          dataType: "text",
+          success : function (data) {
+            $("#text-description").html(data);
+          }
+        });}
+      changeTitleES();
+      changeTextES();
+    </script>
   </body>
 </html>

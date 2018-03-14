@@ -9,14 +9,18 @@ var obtenerImagenes = function(container, imgClass) {
         success: function ($jxhq) {
             $jxhq.data.forEach(function(element) {
                 // Inicialización de elementos
-                if(element.caption == null)
-                    element.caption = ''
+                if(element.caption === null)
+                    element.caption = '';
+                
+
+
+                //var $captionInsta = element.caption.text;
+                
                 // Generación de elemento img
-                var $img = $("<img>", { class: imgClass, src: element.images.standard_resolution.url , alt: element.caption, style: 'display:none'})
-                $(container).append($img)
-                //var $input = $("<input>", { class: inputClass, value: element.caption, style: 'display:none'})
-                //$(container).append($input)
+                var $img = $("<img>", { class: imgClass, src: element.images.standard_resolution.url , alt: element.caption.text, name: element.media_url,  style: 'display:none'});  
+                $(container).append($img);
+                
             }, this);
         }
-    })
-}
+    });
+};
