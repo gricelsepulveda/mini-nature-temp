@@ -83,10 +83,6 @@ module.exports = function(grunt) {
         files: ['src/styles/*.scss'],
         tasks: ['sass']
       },
-      autoprefixer: {
-        files: ['dist/styles/*.css'],
-        tasks: ['autoprefixer']
-      },
       slim: {
         files: ['src/views/*.slim'],
         tasks: ['slim']

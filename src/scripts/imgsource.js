@@ -7,17 +7,14 @@ var obtenerImagenes = function(container, imgClass) {
     $.ajax({
         url: "/ajax-instagram.php",
         success: function ($jxhq) {
+
             $jxhq.data.forEach(function(element) {
                 // Inicialización de elementos
                 if(element.caption === null)
                     element.caption = '';
-                
 
-
-                //var $captionInsta = element.caption.text;
-                
                 // Generación de elemento img
-                var $img = $("<img>", { class: imgClass, src: element.images.standard_resolution.url , alt: element.caption.text, name: element.media_url,  style: 'display:none'});  
+                var $img = $("<img>", { class: imgClass, src: element.images.standard_resolution.url , alt: element.caption.text, name: element.link, style: 'display:none'});  
                 $(container).append($img);
                 
             }, this);

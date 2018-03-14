@@ -40,11 +40,13 @@
       }
       function startRotator(elem) {
         prepareRotator(elem);
-        setInterval("rotateBanners('" + elem + "')", 4000);
+        setInterval("rotateBanners('" + elem + "')", 2500);
         setInterval(function(){
           var label = $('.figura-index > img.active').attr('alt');
+          var link = $('.figura-index > img.active').attr('name');
           $('.figura-index > textarea').attr("placeholder", label);
-        }, 4000);
+          $('.figura-index').attr("href", link);
+        }, 2500);
       }
       $(window).load(function () {
         startRotator(".figura-index");
@@ -89,8 +91,8 @@
         </div>
       </section>
       <section class="mn-showcase flex col end">
-        <h2 class="mn-showcase-title display-none">
-          Nuestros productos
+        <h2 class="mn-showcase-title">
+          Products
         </h2>
         <article class="mn-product flex col end article-1">
           <h3 class="mn-product-title">
@@ -137,7 +139,7 @@
                 <img src="../assets/img/pas-el-2mm/05.png" />
               </div>
               <div class="mn-name">
-                Savannah & Sunbumtn (Por separado / Separately)
+                Savannah & Sunburnt (Por separado / Separately)
               </div>
             </li>
             <li class="mn-product-item">
@@ -211,7 +213,7 @@
                 <img src="../assets/img/pas-el-4mm/06.png" />
               </div>
               <div class="mn-name">
-                Subuntm
+                Sunburnt
               </div>
             </li>
             <li class="mn-product-item">
@@ -269,7 +271,7 @@
                 <img src="../assets/img/pas-el-6mm/05.png" />
               </div>
               <div class="mn-name">
-                Savannah & Sunbumtn (Por separado / Separately)
+                Savannah & Sunburnt (Por separado / Separately)
               </div>
             </li>
             <li class="mn-product-item">
@@ -460,68 +462,68 @@
     </div>
     <div class="mn-modal-container display-none modal-1">
       <div class="mn-modal-product">
+        <div class="flex row center"></div>
         <h1 class="mn-modal-title">
           Static Grass 2mm 50ml.
         </h1>
         <p class="mn-modal-text">
           Mini-Nature 2mm Static Grass is designed for it´s application in Wargaming and models on scales close to 1:50 or smaller.
         </p>
-        <div class="flex row center"></div>
       </div>
     </div>
     <div class="mn-modal-container display-none modal-2">
       <div class="mn-modal-product">
+        <div class="flex row center"></div>
         <h1 class="mn-modal-title">
           Static Grass 4mm 50ml.
         </h1>
         <p class="mn-modal-text">
           Like the rest of our products, Mini-Nature 4mm Static Grass has multiple applications, for example, creating classic grass toufts.
         </p>
-        <div class="flex row center"></div>
       </div>
     </div>
     <div class="mn-modal-container display-none modal-3">
       <div class="mn-modal-product">
+        <div class="flex row center"></div>
         <h1 class="mn-modal-title">
           Static Grass 6mm 50ml.
         </h1>
         <p class="mn-modal-text">
           Someone forgot to mow the lawn! 6mm Static Grass has various applications, both for 1:16 figures, as for figures surrounding 1:48 scale.
         </p>
-        <div class="flex row center"></div>
       </div>
     </div>
     <div class="mn-modal-container display-none modal-4">
       <div class="mn-modal-product">
+        <div class="flex row center"></div>
         <h1 class="mn-modal-title">
           Static Grass 10mm 50ml.
         </h1>
         <p class="mn-modal-text">
           Our 10mm Static Grass is ideal for it´s application in models and figures which scale is greater than 1:32. Acrylic paint adheres perfectly to the Mini-Nature pasture.
         </p>
-        <div class="flex row center"></div>
       </div>
     </div>
     <div class="mn-modal-container display-none modal-5">
       <div class="mn-modal-product">
+        <div class="flex row center"></div>
         <h1 class="mn-modal-title">
           Ballast 50ml.
         </h1>
         <p class="mn-modal-text">
           Ballast is commonly used as crushed stones or gravel in figures and dioramas. Available in Large (L), Medium (M) and Small (S) for it´s use in different modelling scales.
         </p>
-        <div class="flex row center"></div>
       </div>
     </div>
     <div class="mn-modal-container display-none modal-6">
       <div class="mn-modal-product">
+        <div class="flex row center"></div>
         <h1 class="mn-modal-title">
           Líquen 100ml.
         </h1>
         <p class="mn-modal-text">
           A favorite within the hobby. I'ts unique texture blends easily in landscape. Usually used as shrub, tree foliage, and cover for any terrain on any scale.
         </p>
-        <div class="flex row center"></div>
       </div>
     </div>
     <footer class="mn-footer flex row end">
@@ -532,7 +534,7 @@
           </div>
         </span>
       </div>
-      <span class="follow">Follow us on social media</span><a class="fb" href="https://www.facebook.com/mininaturechile/"><i class="fab fa-facebook-f"></i></a><a class="ins" href="https://www.instagram.com/mininaturechile/"><i class="fab fa-instagram"></i></a>
+      <span class="follow">Follow us on social media</span><a class="fb" href="https://www.facebook.com/mininaturechile/"><i class="fab fa-facebook-f"></i></a><a class="ins" href="https://www.instagram.com/mininaturechile/"><i class="fab fa-instagram"></i></a><a href="mailto:info@mini-nature.cl">info@mini-nature.cl</a>
     </footer>
     <script>
       //TEXT CHANGE FUNCTION EN VERSION
