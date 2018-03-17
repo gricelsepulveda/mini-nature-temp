@@ -1,57 +1,57 @@
 $(document).ready(function(){
   // ARTICLE I
   $('.article-1 .mn-product-item').mouseover(function(){
-    $('.modal-1').fadeIn('fast');
-    $('.mn-welcome-message').fadeOut('fast');
+    $('.modal-1').css('display', 'block');
+    $('.mn-welcome-message').css('display', 'none');
   });
   $('.article-1').mouseleave(function(){
-    $('.modal-1').fadeOut('fast');
-    $('.mn-welcome-message').fadeIn('fast');
+    $('.modal-1').css('display', 'none');
+    $('.mn-welcome-message').css('display', 'block');
   });
   // ARTICLE II
   $('.article-2 .mn-product-item').mouseover(function(){
-    $('.modal-2').fadeIn('fast');
-    $('.mn-welcome-message').fadeOut('fast');
+    $('.modal-2').css('display', 'block');
+    $('.mn-welcome-message').css('display', 'none');
   });
   $('.article-2').mouseleave(function(){
-    $('.modal-2').fadeOut('fast');
-    $('.mn-welcome-message').fadeIn('fast');
+    $('.modal-2').css('display', 'none');
+    $('.mn-welcome-message').css('display', 'block');
   });
   // ARTICLE III
   $('.article-3 .mn-product-item').mouseover(function(){
-    $('.modal-3').fadeIn('fast');
-    $('.mn-welcome-message').fadeOut('fast');
+    $('.modal-3').css('display', 'block');
+    $('.mn-welcome-message').css('display', 'none');
   });
   $('.article-3').mouseleave(function(){
-    $('.modal-3').fadeOut('fast');
-    $('.mn-welcome-message').fadeIn('fast');
+    $('.modal-3').css('display', 'none');
+    $('.mn-welcome-message').css('display', 'block');
   });
   // ARTICLE IV
   $('.article-4 .mn-product-item').mouseover(function(){
-    $('.modal-4').fadeIn('fast');
-    $('.mn-welcome-message').fadeOut('fast');
+    $('.modal-4').css('display', 'block');
+    $('.mn-welcome-message').css('display', 'none');
   });
   $('.article-4').mouseleave(function(){
-    $('.modal-4').fadeOut('fast');
-    $('.mn-welcome-message').fadeIn('fast');
+    $('.modal-4').css('display', 'none');
+    $('.mn-welcome-message').css('display', 'block');
   });
   // ARTICLE V
   $('.article-5 .mn-product-item').mouseover(function(){
-    $('.modal-5').fadeIn('fast');
-    $('.mn-welcome-message').fadeOut('fast');
+    $('.modal-5').css('display', 'block');
+    $('.mn-welcome-message').css('display', 'none');
   });
   $('.article-5').mouseleave(function(){
-    $('.modal-5').fadeOut('fast');
-    $('.mn-welcome-message').fadeIn('fast');
+    $('.modal-5').css('display', 'none');
+    $('.mn-welcome-message').css('display', 'block');
   });
   // ARTICLE VI
   $('.article-6 .mn-product-item').mouseover(function(){
-    $('.modal-6').fadeIn('fast');
-    $('.mn-welcome-message').fadeOut('fast');
+    $('.modal-6').css('display', 'block');
+    $('.mn-welcome-message').css('display', 'none');
   });
   $('.article-6').mouseleave(function(){
-    $('.modal-6').fadeOut('fast');
-    $('.mn-welcome-message').fadeIn('fast');
+    $('.modal-6').css('display', 'none');
+    $('.mn-welcome-message').css('display', 'block');
   });
 
   // DRAW ITEM

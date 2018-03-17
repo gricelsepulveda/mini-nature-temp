@@ -107,16 +107,21 @@ nav.mn-nav-top {
 
 //MODAL PRODUCT
 .mn-modal-container {
-  width: calc(33.3% - 70px);
-  //height: 350px;
+  width: calc(33.3% - 80px);
+  height: 300px;
+  min-height: 300px;
+  max-height: 300px;
   position: absolute;
-  left: calc(50% - 16.65% + 30px);
+  left: calc(50% - 16.65% + 40px);
   top: 267px;
   background-color: rgba(black, 0.125);
-  border-radius: 4px;
   z-index: 3;
   box-sizing: border-box;
-  @include animate;
+  @media #{$md}{
+    height: 400px;
+    max-height: 400px;
+    min-height: 400px;
+  }
   @media #{$sm}{
     display: none!important;
   }
@@ -126,7 +131,6 @@ nav.mn-nav-top {
     width: 100%;
     height: 100%;
     box-sizing: border-box;
-    @include animate;
     i.fas.fa-times {
       color: $black;
       width: 28px;
@@ -149,16 +153,16 @@ nav.mn-nav-top {
       text-align: justify;
     }
     .flex {
-      width: 200px;
-      height: 200px;
+      width: 150px;
+      height: 150px;
       overflow: hidden;
       background-color: white;
       position: relative;
       margin: 0 auto;
       @include animate;
       img {
-        width: 200px;
-        height: 200px;
+        width: 150px;
+        height: 150px;
         @include animate;
       }
     }
@@ -232,6 +236,11 @@ footer.mn-footer {
       @include bg-darken($white);
       color: $black;
     }
+    &.mail-to {
+      @media #{$sm}{
+        display: none;
+      }
+    }
     &:last-of-type {
       margin-right: 0px;
       font-family: 'Lato', sans-serif!important;
@@ -288,12 +297,22 @@ footer.mn-footer {
     &.mn-welcome {
       .mn-welcome-message {
         padding: 20px;
-        //height: 350px;
+        height: 300px;
+        min-height: 300px;
+        max-height: 300px;
         box-sizing: border-box;
         background-color: rgba(black, 0.125);
+        @media #{$md}{
+          height: 400px;
+          max-height: 400px;
+          min-height: 400px;
+        }
         @media #{$sm}{
           display: block!important;
           opacity: 1!important;
+          height: auto;
+          min-height: initial;
+          max-height: initial;
         }
         h1.mn-welcome-title {
           font-family: 'titles', sans-serif;
@@ -318,6 +337,14 @@ footer.mn-footer {
         display: block;
         margin: 0 auto;
         position: relative;
+        &:hover {
+          width: 300px;
+          height: 340px;
+          overflow: hidden;
+          display: block;
+          margin: 0 auto;
+          position: relative;
+        }
         @media #{$sm}{
           width: 250px;
           height: 290px;
